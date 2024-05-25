@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -96,12 +94,12 @@ class MinePage extends StatelessWidget {
         children: [
           Image.network(
             "https://img0.baidu.com/it/u=3564463727,3876798294&fm=253&fmt=auto&app=138&f=JPEG?w=499&h=234",
-            width: double.infinity,
+            width: Get.width,
             height: 250,
             fit: BoxFit.cover,
             errorBuilder: (_, __, ___) => Image.asset(
               "assets/images/background.webp",
-              width: double.infinity,
+              width: Get.width,
               height: 220,
               fit: BoxFit.cover,
             ),
@@ -294,13 +292,11 @@ class MinePage extends StatelessWidget {
         Row(
           children: [
             Column(
-              children: controller.data
-                  .map((e) => buildCardItem(e as CardData))
-                  .toList(),
+              children: controller.data.map((e) => buildCardItem(e)).toList(),
             ),
             Column(
               children: controller.data.reversed
-                  .map((e) => buildCardItem(e as CardData))
+                  .map((e) => buildCardItem(e))
                   .toList(),
             ),
           ],
@@ -315,7 +311,7 @@ class MinePage extends StatelessWidget {
         controller.openIndexDetailPage(cardData.id);
       },
       child: Container(
-        width: (double.infinity / 2) - 8,
+        width: (Get.width / 2) - 8,
         margin: const EdgeInsets.all(4),
         decoration: BoxDecoration(
           color: Colors.white,
@@ -328,8 +324,8 @@ class MinePage extends StatelessWidget {
                   const BorderRadius.vertical(top: Radius.circular(4)),
               child: Image.network(
                 cardData.cover,
-                width: double.infinity / 2,
-                height: double.infinity / 2 + 30,
+                width: Get.width / 2,
+                height: Get.width / 2 + 30,
                 fit: BoxFit.cover,
               ),
             ),
