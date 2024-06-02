@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_redbook/pages/main/main_page.dart';
 import 'package:get/get.dart';
 
-import '../index/index_page.dart';
+import '../main/main_page.dart';
 import '../message/message_page.dart';
 import '../mine/mine_page.dart';
 import '../video/video_page.dart';
@@ -18,7 +19,7 @@ class HomePage extends StatelessWidget {
         body: IndexedStack(
           index: homeController.currentIndex.value,
           children: [
-            IndexPage(),
+            MainPage(),
             homeController.currentIndex.value == 1 ? VideoPage() : Container(),
             Container(),
             MessagePage(),

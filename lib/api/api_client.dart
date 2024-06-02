@@ -34,6 +34,12 @@ class ApiClient {
     return await Future.value(Mock.videoList);
   }
 
+  // 获取首页"发现"数据
+  Future getDiscoverData() async {
+    await Future.delayed(const Duration(seconds: 1));
+    return await Future.value(Mock.discoverData);
+  }
+
   Future getFollowData() async {
     await Future.delayed(const Duration(seconds: 1));
     return await Future.value(Mock.followData);
