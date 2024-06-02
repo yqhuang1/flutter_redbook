@@ -43,79 +43,111 @@ class MyDrawer extends StatelessWidget {
       constraints: const BoxConstraints.expand(width: 304.0),
       child: Material(
         elevation: 16.0,
-        child: ListView.builder(
-          itemCount: menuTitles.length * 2,
-          itemBuilder: renderDrawerRow,
-          padding: const EdgeInsets.all(0.0), // 加上这一行可以让Drawer展开时，状态栏中不显示白色
+        child: Column(
+          children: <Widget>[
+            ListTile(
+              leading: const Icon(
+                Icons.lightbulb_outlined,
+                color: Colors.black,
+                size: 28.0,
+                semanticLabel: '创作中心',
+              ),
+              title: const Text('创作中心'),
+              onTap: () {
+                controller.openIndexDetailPage(0);
+              },
+            ),
+            ListTile(
+              leading: const Icon(
+                Icons.drafts_outlined,
+                color: Colors.black,
+                size: 28.0,
+                semanticLabel: '我的草稿',
+              ),
+              title: const Text('我的草稿'),
+              onTap: () {
+                controller.openIndexDetailPage(1);
+              },
+            ),
+            ListTile(
+              leading: const Icon(
+                Icons.history_outlined,
+                color: Colors.black,
+                size: 28.0,
+                semanticLabel: '浏览记录',
+              ),
+              title: const Text('浏览记录'),
+              onTap: () {
+                controller.openIndexDetailPage(2);
+              },
+            ),
+            const Divider(
+              thickness: 1.0,
+              color: Colors.grey,
+              indent: 15.0,
+              endIndent: 15.0,
+            ),
+            ListTile(
+              leading: const Icon(
+                Icons.menu_book_outlined,
+                color: Colors.black,
+                size: 28.0,
+                semanticLabel: '订单',
+              ),
+              title: const Text('订单'),
+              onTap: () {
+                Navigator.of(context).pop();
+                controller.openIndexDetailPage(3);
+              },
+            ),
+            ListTile(
+              leading: const Icon(
+                Icons.shopping_cart_outlined,
+                color: Colors.black,
+                size: 28.0,
+                semanticLabel: '购物车',
+              ),
+              title: const Text('购物车'),
+              onTap: () {
+                Navigator.of(context).pop();
+                controller.openIndexDetailPage(4);
+              },
+            ),
+            ListTile(
+              leading: const Icon(
+                Icons.wallet_outlined,
+                color: Colors.black,
+                size: 28.0,
+                semanticLabel: '钱包',
+              ),
+              title: const Text('钱包'),
+              onTap: () {
+                Navigator.of(context).pop();
+                controller.openIndexDetailPage(5);
+              },
+            ),
+            const Divider(
+              thickness: 1.0,
+              color: Colors.grey,
+              indent: 15.0,
+              endIndent: 15.0,
+            ),
+            ListTile(
+              leading: const Icon(
+                Icons.grass_outlined,
+                color: Colors.black,
+                size: 28.0,
+                semanticLabel: '社区公约',
+              ),
+              title: const Text('社区公约'),
+              onTap: () {
+                Navigator.of(context).pop();
+                controller.openIndexDetailPage(6);
+              },
+            ),
+          ],
         ),
       ),
-    );
-  }
-
-  Widget renderDrawerRow(BuildContext context, int index) {
-    if (index.isOdd) {
-      // 如果是奇数则渲染分割线
-      if ((index + 1) % 6 == 0) {
-        return const Divider(
-          thickness: 1.0,
-          color: Colors.grey,
-          indent: 15.0,
-          endIndent: 15.0,
-        );
-      } else {
-        return const Divider(
-          thickness: 1.0,
-          color: Colors.white,
-          indent: 15.0,
-          endIndent: 15.0,
-        );
-      }
-    }
-    // 偶数，就除2取整，然后渲染菜单item
-    index = index ~/ 2;
-    // 菜单item组件
-    var listItemContent = Padding(
-      // 设置item的外边距
-      padding: const EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
-      // Row组件构成item的一行
-      child: Row(
-        children: <Widget>[
-          // 菜单item的图标
-          Icon(
-            menuIcons[index],
-            color: Colors.black,
-            size: 28.0,
-            semanticLabel: menuTitles[index],
-          ),
-          // 菜单item的文本，需要
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Text(
-              menuTitles[index],
-              style: menuStyle,
-            ),
-          ),
-          const Spacer(),
-          rightArrowIcon,
-        ],
-      ),
-    );
-
-    return InkWell(
-      child: listItemContent,
-      onTap: () {
-        switch (index) {
-          case 0:
-          case 1:
-          case 2:
-          case 3:
-          case 4:
-          case 5:
-          case 6:
-            controller.openIndexDetailPage(index + 1);
-            break;
-        }
-      },
     );
   }
 }
