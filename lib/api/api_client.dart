@@ -33,4 +33,9 @@ class ApiClient {
     await Future.delayed(const Duration(seconds: 1));
     return await Future.value(Mock.videoList);
   }
+
+  Future getFollowData() async {
+    await Future.delayed(const Duration(seconds: 1));
+    return await Future.value(Mock.followData);
+  }
 }

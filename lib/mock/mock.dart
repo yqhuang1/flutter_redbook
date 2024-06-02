@@ -1,6 +1,7 @@
 import '../models/card_data.dart';
 import '../models/card_detail_data.dart';
 import '../models/comment.dart';
+import '../models/follow_data.dart';
 import '../models/video.dart';
 
 class Mock {
@@ -316,5 +317,112 @@ class Mock {
         135,
         65,
         102),
+  ];
+
+  static List<FollowData> followData = [
+    FollowData(
+      1,
+      1000,
+      "好爱看美女分享日常照",
+      "好爱看美女分享日常照，就像已经可以跟她们贴贴一起出去秋游的感觉",
+      "https://gss0.baidu.com/70cFfyinKgQFm2e88IuM_a/baike/pic/item/8718367adab44aed5e941fe4b81c8701a08bfbdc.jpg",
+      "圆脸卡卡",
+      119,
+      10,
+      2,
+      "2023-08-09 10:54:27",
+      "广州",
+      [
+        "https://img2.baidu.com/it/u=3158311150,3164770023&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500",
+        "https://img0.baidu.com/it/u=3640286701,3728960275&fm=253&fmt=auto&app=138&f=JPEG?w=523&h=500",
+      ],
+    ),
+    FollowData(
+      2,
+      1001,
+      "春季日常",
+      "韩国短发女生春季日常休闲穿搭示范-韩国流行",
+      "https://img1.baidu.com/it/u=895781527,3064009596&fm=253&fmt=auto&app=138&f=JPEG?w=528&h=500",
+      "橙子",
+      39,
+      12,
+      0,
+      "2023-08-07 06:24:27",
+      "深圳",
+      [
+        "https://img1.baidu.com/it/u=895781527,3064009596&fm=253&fmt=auto&app=138&f=JPEG?w=528&h=500",
+        "https://img0.baidu.com/it/u=3067655938,1190349262&fm=253&fmt=auto&app=138&f=JPEG?w=502&h=500",
+        "https://img1.baidu.com/it/u=2947850225,1655192861&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500",
+      ],
+    ),
+    FollowData(
+      3,
+      1003,
+      "日常居家写真",
+      "清纯大学生日常居家写真,清纯-美女图片",
+      "https://img2.baidu.com/it/u=485874141,3467188467&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500",
+      "Manito",
+      983,
+      13,
+      1,
+      "2023-06-07 09:24:27",
+      "深圳",
+      [
+        "https://img2.baidu.com/it/u=485874141,3467188467&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500",
+      ],
+    ),
+    FollowData(
+      4,
+      1004,
+      "日常更新",
+      "背影",
+      "https://img2.baidu.com/it/u=553843652,3032718552&fm=253&fmt=auto&app=138&f=JPEG?w=501&h=500",
+      "日月",
+      81381,
+      93,
+      17,
+      "2023-06-09 16:54:27",
+      "深圳",
+      [
+        "https://img2.baidu.com/it/u=553843652,3032718552&fm=253&fmt=auto&app=138&f=JPEG?w=501&h=500",
+      ],
+    ),
+    FollowData(
+      5,
+      1005,
+      "治愈系",
+      "治愈系女生平日常穿搭照",
+      "https://img0.baidu.com/it/u=2549236506,772844021&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=666",
+      "陈",
+      1837,
+      31,
+      5,
+      "2023-06-09 16:54:27",
+      "深圳",
+      [
+        "https://img0.baidu.com/it/u=2549236506,772844021&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=666",
+        "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fsafe-img.xhscdn.com%2Fbw1%2Fc4ce25b7-4b03-4ce7-ab33-3f80db62e94e%3FimageView2%2F2%2Fw%2F1080%2Fformat%2Fjpg&refer=http%3A%2F%2Fsafe-img.xhscdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1694266388&t=836fcd1a4884bee19bbef7990db42eb2",
+        "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fsafe-img.xhscdn.com%2Fbw1%2Fea4b667b-eec8-4f2b-aa29-7820cff8a26a%3FimageView2%2F2%2Fw%2F1080%2Fformat%2Fjpg&refer=http%3A%2F%2Fsafe-img.xhscdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1694266388&t=f18df7c2e97535bfb9cbda942563345c",
+      ],
+    ),
+    FollowData(
+      6,
+      1006,
+      "封校日常",
+      "捕捉一枚野生美女",
+      "https://img2.baidu.com/it/u=372601434,3534902205&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500",
+      "Alice",
+      1237,
+      63,
+      6,
+      "2023-06-15 16:54:27",
+      "贵州",
+      [
+        "https://pic1.zhimg.com/v2-cfe0f84b071bb79d3ad566a766851511_r.jpg?source=1940ef5c",
+        "https://p1.itc.cn/c_cut,x_0,y_285,w_960,h_640/images01/20200519/cb858487cb2f4d70b4d4d987a1fa930f.jpeg",
+        "https://img0.baidu.com/it/u=1445820300,3925907851&fm=253&fmt=auto&app=138&f=JPEG?w=375&h=500",
+        "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202007%2F07%2F20200707000455_pswbd.thumb.400_0.jpg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1694266871&t=3c6e8c83c1a9d742652eded9d9af28ec",
+      ],
+    ),
   ];
 }

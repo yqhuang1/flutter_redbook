@@ -5,4 +5,5 @@ class Pages {
   static const String message = "/message";
   static const String mine = "/mine";
   static const String indexDetail = "/indexDetail";
+  static const String followDetail = "/followDetail";
 }

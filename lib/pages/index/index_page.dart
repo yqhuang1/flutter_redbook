@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_redbook/models/follow_data.dart';
 import 'package:get/get.dart';
 
 import '../../constants/color_plate.dart';
@@ -64,7 +66,14 @@ class IndexPage extends StatelessWidget {
   }
 
   Widget buildFollowPage() {
-    return const Center(child: Text("正在开发"));
+    return ListView(
+      children: [
+        Column(
+          children:
+              controller.followData.map((e) => buildFollowItem(e)).toList(),
+        )
+      ],
+    );
   }
 
   Widget buildDiscoverPage() {
@@ -88,6 +97,78 @@ class IndexPage extends StatelessWidget {
 
   Widget buildShoppingPage() {
     return const Center(child: Text("正在开发"));
+  }
+
+  Widget buildFollowItem(FollowData followData) {
+    return Container(
+      width: Get.width - 8,
+      margin: const EdgeInsets.all(4),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(4),
+      ),
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
+            child: Row(
+              children: [
+                ClipOval(
+                  child: Image.network(followData.avatar,
+                      width: 30, height: 30, fit: BoxFit.cover),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Text(followData.nickname),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 16.0),
+                  child: Text(followData.date),
+                ),
+              ],
+            ),
+          ),
+          ClipRRect(
+            borderRadius: const BorderRadius.vertical(top: Radius.circular(4)),
+            child: Image.network(
+              followData.images.first,
+              width: Get.width,
+              height: Get.width + 30,
+              fit: BoxFit.cover,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
+            child: Row(
+              children: [
+                Image.asset("assets/images/share.png", width: 30),
+                const Spacer(),
+                Image.asset("assets/images/like.png", width: 30, height: 30),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Text(followData.like.toString()),
+                ),
+                Image.asset("assets/images/fav.png", width: 30, height: 30),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Text(followData.fav.toString()),
+                ),
+                Image.asset("assets/images/comment.png", width: 30, height: 30),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Text(followData.comment.toString()),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
+            child: Text(followData.content,
+                maxLines: 2, overflow: TextOverflow.ellipsis),
+          ),
+        ],
+      ),
+    );
   }
 
   Widget buildCardItem(CardData cardData) {

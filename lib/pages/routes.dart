@@ -10,5 +10,6 @@ class Routes {
     GetPage(name: Pages.init, page: () => InitPage()),
     GetPage(name: Pages.home, page: () => HomePage()),
     GetPage(name: Pages.indexDetail, page: () => IndexDetailPage()),
+    GetPage(name: Pages.followDetail, page: () => IndexDetailPage())
   ];
 }
