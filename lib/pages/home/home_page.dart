@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redbook/pages/main/main_page.dart';
 import 'package:get/get.dart';
 
+import '../drawer/my_drawer.dart';
 import '../main/main_page.dart';
 import '../message/message_page.dart';
 import '../mine/mine_page.dart';
@@ -26,6 +27,7 @@ class HomePage extends StatelessWidget {
             MinePage(),
           ],
         ),
+        drawer: MyDrawer(),
         bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(
             splashColor: Colors.transparent,

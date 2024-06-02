@@ -24,7 +24,13 @@ class MainPage extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Image.asset("assets/images/world.png", width: 30, height: 30),
+                  InkWell(
+                    onTap: () {
+                      controller.openDrawerPage(context);
+                    },
+                    child: Image.asset("assets/images/world.png",
+                        width: 30, height: 30),
+                  ),
                   SizedBox(
                     height: 30,
                     width: 200,

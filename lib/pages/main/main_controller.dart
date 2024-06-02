@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_redbook/models/follow_data.dart';
 import 'package:get/get.dart';
@@ -39,5 +41,9 @@ class MainController extends GetxController with GetSingleTickerProviderStateMix
 
   void openFollowDetailPage(int id) {
     Get.toNamed(Pages.followDetail, arguments: {"id": id});
+  }
+
+  void openDrawerPage(BuildContext context) {
+    Scaffold.of(context).openDrawer();
   }
 }
