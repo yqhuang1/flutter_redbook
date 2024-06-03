@@ -6,7 +6,7 @@ import '../../models/card_data.dart';
 import 'mine_controller.dart';
 
 class MinePage extends StatelessWidget {
-  MinePage({super.key});
+  MinePage({Key? key}) : super(key: key);
 
   final MineController controller = Get.put(MineController());
 
@@ -15,7 +15,8 @@ class MinePage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: NestedScrollView(
-          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+          headerSliverBuilder:
+              (BuildContext context1, bool innerBoxIsScrolled) {
             return <Widget>[
               // SliverAppBar(
               //   floating: false,
@@ -24,8 +25,8 @@ class MinePage extends StatelessWidget {
               // ),
               SliverOverlapAbsorber(
                 handle:
-                    NestedScrollView.sliverOverlapAbsorberHandleFor(context),
-                sliver: SliverToBoxAdapter(child: _buildHeader()),
+                    NestedScrollView.sliverOverlapAbsorberHandleFor(context1),
+                sliver: SliverToBoxAdapter(child: _buildHeader(context)),
               ),
 
               /// SliverPersistentHeader 的功能是当滑动到 CustomScrollView 的顶部时，可以将组件固定在顶部
@@ -87,7 +88,7 @@ class MinePage extends StatelessWidget {
     );
   }
 
-  Widget _buildHeader() {
+  Widget _buildHeader(BuildContext context) {
     return GestureDetector(
       onTap: () {},
       child: Stack(
@@ -117,7 +118,14 @@ class MinePage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Icon(Icons.menu, color: Colors.white),
+                    Builder(builder: (context1) {
+                      return InkWell(
+                        onTap: () {
+                          controller.openDrawerPage(context);
+                        },
+                        child: const Icon(Icons.menu, color: Colors.white),
+                      );
+                    }),
                     Image.asset(
                       "assets/images/share.png",
                       width: 20,
