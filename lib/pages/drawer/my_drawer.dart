@@ -45,108 +45,109 @@ class MyDrawer extends StatelessWidget {
         elevation: 16.0,
         child: Column(
           children: <Widget>[
-            ListTile(
-              leading: const Icon(
-                Icons.lightbulb_outlined,
-                color: Colors.black,
-                size: 28.0,
-                semanticLabel: '创作中心',
-              ),
-              title: const Text('创作中心'),
-              onTap: () {
-                controller.openIndexDetailPage(0);
-              },
-            ),
-            ListTile(
-              leading: const Icon(
-                Icons.drafts_outlined,
-                color: Colors.black,
-                size: 28.0,
-                semanticLabel: '我的草稿',
-              ),
-              title: const Text('我的草稿'),
-              onTap: () {
-                controller.openIndexDetailPage(1);
-              },
-            ),
-            ListTile(
-              leading: const Icon(
-                Icons.history_outlined,
-                color: Colors.black,
-                size: 28.0,
-                semanticLabel: '浏览记录',
-              ),
-              title: const Text('浏览记录'),
-              onTap: () {
-                controller.openIndexDetailPage(2);
-              },
-            ),
+            buildListTile(Icons.lightbulb_outlined, Colors.black, '创作中心', () {
+              controller.openIndexDetailPage(0);
+            }),
+            buildListTile(Icons.drafts_outlined, Colors.black, '我的草稿', () {
+              controller.openIndexDetailPage(1);
+            }),
+            buildListTile(Icons.history_outlined, Colors.black, '浏览记录', () {
+              controller.openIndexDetailPage(2);
+            }),
             const Divider(
               thickness: 1.0,
               color: Colors.grey,
               indent: 15.0,
               endIndent: 15.0,
             ),
-            ListTile(
-              leading: const Icon(
-                Icons.menu_book_outlined,
-                color: Colors.black,
-                size: 28.0,
-                semanticLabel: '订单',
-              ),
-              title: const Text('订单'),
-              onTap: () {
-                Navigator.of(context).pop();
-                controller.openIndexDetailPage(3);
-              },
-            ),
-            ListTile(
-              leading: const Icon(
-                Icons.shopping_cart_outlined,
-                color: Colors.black,
-                size: 28.0,
-                semanticLabel: '购物车',
-              ),
-              title: const Text('购物车'),
-              onTap: () {
-                Navigator.of(context).pop();
-                controller.openIndexDetailPage(4);
-              },
-            ),
-            ListTile(
-              leading: const Icon(
-                Icons.wallet_outlined,
-                color: Colors.black,
-                size: 28.0,
-                semanticLabel: '钱包',
-              ),
-              title: const Text('钱包'),
-              onTap: () {
-                Navigator.of(context).pop();
-                controller.openIndexDetailPage(5);
-              },
-            ),
+            buildListTile(Icons.menu_book_outlined, Colors.black, '订单', () {
+              Navigator.of(context).pop();
+              controller.openIndexDetailPage(3);
+            }),
+            buildListTile(Icons.shopping_cart_outlined, Colors.black, '购物车',
+                () {
+              Navigator.of(context).pop();
+              controller.openIndexDetailPage(4);
+            }),
+            buildListTile(Icons.wallet_outlined, Colors.black, '钱包', () {
+              Navigator.of(context).pop();
+              controller.openIndexDetailPage(5);
+            }),
             const Divider(
               thickness: 1.0,
               color: Colors.grey,
               indent: 15.0,
               endIndent: 15.0,
             ),
-            ListTile(
-              leading: const Icon(
-                Icons.grass_outlined,
-                color: Colors.black,
-                size: 28.0,
-                semanticLabel: '社区公约',
+            buildListTile(Icons.grass_outlined, Colors.black, '社区公约', () {
+              Navigator.of(context).pop();
+              controller.openIndexDetailPage(6);
+            }),
+            const Spacer(),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 12.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  buildIcon(Icons.settings_outlined, "设置", Colors.grey, () {
+                    Navigator.of(context).pop();
+                    controller.openIndexDetailPage(6);
+                  }),
+                  buildIcon(Icons.headset_outlined, "帮助与客服", Colors.grey, () {
+                    Navigator.of(context).pop();
+                    controller.openIndexDetailPage(7);
+                  }),
+                  buildIcon(Icons.qr_code_scanner_outlined, "扫一扫", Colors.grey,
+                      () {
+                    Navigator.of(context).pop();
+                    controller.openIndexDetailPage(8);
+                  }),
+                ],
               ),
-              title: const Text('社区公约'),
-              onTap: () {
-                Navigator.of(context).pop();
-                controller.openIndexDetailPage(6);
-              },
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget buildListTile(
+      IconData icons, Color color, String text, Function onTap) {
+    return ListTile(
+      leading: Icon(
+        icons,
+        color: color,
+        size: 28.0,
+        semanticLabel: text,
+      ),
+      title: Text(text),
+      onTap: () {
+        onTap.call();
+      },
+    );
+  }
+
+  Widget buildIcon(IconData icons, String text, Color color, Function onTap) {
+    return GestureDetector(
+      onTap: () {
+        onTap.call();
+      },
+      child: Column(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(10),
+            margin: const EdgeInsets.only(bottom: 8),
+            decoration: BoxDecoration(
+              color: color.withOpacity(0.2),
+              borderRadius: BorderRadius.circular(50.0),
+            ),
+            child: Icon(icons, size: 25),
+          ),
+          Text(text,
+              style: TextStyle(
+                color: color,
+              )),
+        ],
       ),
     );
   }
