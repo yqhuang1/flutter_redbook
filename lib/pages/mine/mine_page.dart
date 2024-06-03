@@ -132,17 +132,22 @@ class MinePage extends StatelessWidget {
                           onTap: () {
                             controller.openIndexDetailPage(0);
                           },
-                          child: const Padding(
-                            padding: EdgeInsets.only(right: 20),
-                            child: Icon(Icons.qr_code_scanner_outlined,
-                                color: Colors.white, size: 20),
-                          ),
+                          child: const Icon(Icons.qr_code_scanner_outlined,
+                              color: Colors.white, size: 20),
                         ),
-                        Image.asset(
-                          "assets/images/share.png",
+                        const SizedBox(
                           width: 20,
-                          height: 20,
-                          color: Colors.white,
+                        ),
+                        InkWell(
+                          onTap: () {
+                            controller.openIndexDetailPage(0);
+                          },
+                          child: Image.asset(
+                            "assets/images/share.png",
+                            width: 20,
+                            height: 20,
+                            color: Colors.white,
+                          ),
                         ),
                       ],
                     ),
