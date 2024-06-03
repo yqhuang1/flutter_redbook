@@ -126,12 +126,26 @@ class MinePage extends StatelessWidget {
                         child: const Icon(Icons.menu, color: Colors.white),
                       );
                     }),
-                    Image.asset(
-                      "assets/images/share.png",
-                      width: 20,
-                      height: 20,
-                      color: Colors.white,
-                    )
+                    Row(
+                      children: <Widget>[
+                        InkWell(
+                          onTap: () {
+                            controller.openIndexDetailPage(0);
+                          },
+                          child: const Padding(
+                            padding: EdgeInsets.only(right: 20),
+                            child: Icon(Icons.qr_code_scanner_outlined,
+                                color: Colors.white, size: 20),
+                          ),
+                        ),
+                        Image.asset(
+                          "assets/images/share.png",
+                          width: 20,
+                          height: 20,
+                          color: Colors.white,
+                        ),
+                      ],
+                    ),
                   ],
                 ),
                 Align(
