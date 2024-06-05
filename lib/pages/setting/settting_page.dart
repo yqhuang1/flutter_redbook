@@ -18,8 +18,8 @@ class SettingPage extends StatelessWidget {
         children: [
           Container(
             width: Get.width,
-            padding: const EdgeInsets.fromLTRB(6.0, 12.0, 6.0, 12.0),
-            margin: const EdgeInsets.all(4),
+            padding: const EdgeInsets.all(4),
+            margin: const EdgeInsets.fromLTRB(6.0, 12.0, 6.0, 12.0),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(15),
@@ -33,8 +33,8 @@ class SettingPage extends StatelessWidget {
           ),
           Container(
             width: Get.width,
-            padding: const EdgeInsets.fromLTRB(6.0, 12.0, 6.0, 12.0),
-            margin: const EdgeInsets.all(4),
+            padding: const EdgeInsets.all(4),
+            margin: const EdgeInsets.fromLTRB(6.0, 12.0, 6.0, 12.0),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(15),
@@ -49,8 +49,8 @@ class SettingPage extends StatelessWidget {
           ),
           Container(
             width: Get.width,
-            padding: const EdgeInsets.fromLTRB(6.0, 12.0, 6.0, 12.0),
-            margin: const EdgeInsets.all(4),
+            padding: const EdgeInsets.all(4),
+            margin: const EdgeInsets.fromLTRB(6.0, 12.0, 6.0, 12.0),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(15),
@@ -66,8 +66,8 @@ class SettingPage extends StatelessWidget {
           ),
           Container(
             width: Get.width,
-            padding: const EdgeInsets.fromLTRB(6.0, 12.0, 6.0, 12.0),
-            margin: const EdgeInsets.all(4),
+            padding: const EdgeInsets.all(4),
+            margin: const EdgeInsets.fromLTRB(6.0, 12.0, 6.0, 12.0),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(15),
