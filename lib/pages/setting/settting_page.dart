@@ -12,7 +12,12 @@ class SettingPage extends StatelessWidget {
       backgroundColor: Colors.grey.withOpacity(0.2),
       appBar: AppBar(
         title: const Text("设置"),
-        actions: const [],
+        actions: const [
+          Padding(
+            padding: EdgeInsets.only(left: 12.0, right: 14),
+            child: Icon(Icons.qr_code_scanner_outlined, size: 25),
+          ),
+        ],
       ),
       body: ListView(
         children: [
@@ -79,6 +84,37 @@ class SettingPage extends StatelessWidget {
                 buildListTile('个人信息收集清单', '', () {}),
                 buildListTile('第三方信息共享清单', '', () {}),
                 buildListTile('关于Red Book', '', () {}),
+              ],
+            ),
+          ),
+          Container(
+            width: Get.width,
+            padding: const EdgeInsets.all(4),
+            margin: const EdgeInsets.fromLTRB(6.0, 12.0, 6.0, 12.0),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: Column(
+              children: <Widget>[
+                ListTile(
+                  title: const Text(
+                    '切换账号',
+                    textAlign: TextAlign.center,
+                  ),
+                  onTap: () {
+                    controller.openIndexDetailPage(1);
+                  },
+                ),
+                ListTile(
+                  title: const Text(
+                    '退出登录',
+                    textAlign: TextAlign.center,
+                  ),
+                  onTap: () {
+                    controller.openIndexDetailPage(2);
+                  },
+                ),
               ],
             ),
           ),
