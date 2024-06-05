@@ -7,4 +7,5 @@ class Pages {
   static const String indexDetail = "/indexDetail";
   static const String discoverDetail = "/discoverDetail";
   static const String followDetail = "/followDetail";
+  static const String setting = "/setting";
 }

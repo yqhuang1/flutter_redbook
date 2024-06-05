@@ -1,3 +1,4 @@
+import 'package:flutter_redbook/pages/setting/settting_page.dart';
 import 'package:get/get.dart';
 
 import '../constants/pages.dart';
@@ -12,5 +13,6 @@ class Routes {
     GetPage(name: Pages.indexDetail, page: () => IndexDetailPage()),
     GetPage(name: Pages.discoverDetail, page: () => IndexDetailPage()),
     GetPage(name: Pages.followDetail, page: () => IndexDetailPage()),
+    GetPage(name: Pages.setting, page: () => SettingPage()),
   ];
 }

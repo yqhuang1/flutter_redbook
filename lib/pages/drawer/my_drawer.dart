@@ -91,7 +91,7 @@ class MyDrawer extends StatelessWidget {
                 children: [
                   buildIcon(Icons.settings_outlined, "设置", Colors.grey, () {
                     Navigator.of(context).pop();
-                    controller.openIndexDetailPage(6);
+                    controller.openSettingPage();
                   }),
                   buildIcon(Icons.headset_outlined, "帮助与客服", Colors.grey, () {
                     Navigator.of(context).pop();
