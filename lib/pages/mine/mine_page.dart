@@ -425,18 +425,24 @@ class MinePage extends StatelessWidget {
                     mainAxisSpacing: 5.0,
                     childAspectRatio: 1.0),
                 itemBuilder: (BuildContext context, int index) {
-                  return Column(
-                    children: <Widget>[
-                      Padding(
-                          padding: EdgeInsets.fromLTRB(0.0, 6.0, 0.0, 6.0),
-                          child: Image.asset(
-                            'images/icons/${iconItems[index]}',
-                            width: 50.0,
-                            height: 50.0,
-                            fit: BoxFit.fill,
-                          )),
-                      Text(nameItems[index]),
-                    ],
+                  return GestureDetector(
+                    onTap: () {
+                      controller.openIndexDetailPage(index);
+                    },
+                    child: Column(
+                      children: <Widget>[
+                        Padding(
+                            padding:
+                                const EdgeInsets.fromLTRB(0.0, 6.0, 0.0, 6.0),
+                            child: Image.asset(
+                              'images/icons/${iconItems[index]}',
+                              width: 50.0,
+                              height: 50.0,
+                              fit: BoxFit.fill,
+                            )),
+                        Text(nameItems[index]),
+                      ],
+                    ),
                   );
                 },
                 itemCount: nameItems.length,
@@ -447,14 +453,19 @@ class MinePage extends StatelessWidget {
             height: 0.5,
             color: Colors.blueGrey,
           ),
-          const Center(
-            child: Padding(
-                padding: EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 8.0),
-                child: Text(
-                  '取  消',
-                  style: TextStyle(fontSize: 18.0, color: Colors.blueGrey),
-                )),
-          )
+          InkWell(
+            onTap: () {
+              Navigator.of(context).pop();
+            },
+            child: const Center(
+              child: Padding(
+                  padding: EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 8.0),
+                  child: Text(
+                    '取  消',
+                    style: TextStyle(fontSize: 18.0, color: Colors.blueGrey),
+                  )),
+            ),
+          ),
         ],
       ),
     );
