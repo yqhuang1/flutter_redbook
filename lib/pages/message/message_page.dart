@@ -30,9 +30,9 @@ class MessagePage extends StatelessWidget {
               ],
             ),
           ),
-          buildMessage(),
-          buildMessage(),
-          buildMessage(),
+          buildMessage(Icons.notifications, '系统通知', '活动通知：在么？', () {}),
+          buildMessage(Icons.notifications, '系统通知', '活动通知：在么？', () {}),
+          buildMessage(Icons.notifications, '系统通知', '活动通知：在么？', () {}),
         ],
       ),
     );
@@ -41,7 +41,7 @@ class MessagePage extends StatelessWidget {
   Widget buildIcon(String iconPath, String text, Color color, Function onTap) {
     return GestureDetector(
       onTap: () {
-        onTap.call();
+        controller.openIndexDetailPage(1);
       },
       child: Column(
         children: [
@@ -60,45 +60,51 @@ class MessagePage extends StatelessWidget {
     );
   }
 
-  Widget buildMessage() {
-    return Padding(
-      padding: const EdgeInsets.all(12.0),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            padding: const EdgeInsets.all(10),
-            margin: const EdgeInsets.only(bottom: 8, right: 12),
-            decoration: BoxDecoration(
-              color: Colors.blue.withOpacity(0.2),
-              shape: BoxShape.circle,
+  Widget buildMessage(
+      IconData icon, String title, String content, Function onTap) {
+    return InkWell(
+      onTap: () {
+        controller.openIndexDetailPage(3);
+      },
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              padding: const EdgeInsets.all(10),
+              margin: const EdgeInsets.only(bottom: 8, right: 12),
+              decoration: BoxDecoration(
+                color: Colors.blue.withOpacity(0.2),
+                shape: BoxShape.circle,
+              ),
+              child: Image.asset("assets/images/message.png",
+                  width: 30, height: 30),
             ),
-            child:
-                Image.asset("assets/images/message.png", width: 30, height: 30),
-          ),
-          const Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("消息通知", style: TextStyle(fontSize: 16)),
-                    Text("星期日",
-                        style:
-                            TextStyle(fontSize: 12, color: ColorPlate.black9)),
-                  ],
-                ),
-                Text(
-                  "活动通知：谁能帮我看看，这种透明的卡是什么啊",
-                  style: TextStyle(color: ColorPlate.black9),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 1,
-                )
-              ],
+            const Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("消息通知", style: TextStyle(fontSize: 16)),
+                      Text("星期日",
+                          style: TextStyle(
+                              fontSize: 12, color: ColorPlate.black9)),
+                    ],
+                  ),
+                  Text(
+                    "活动通知：谁能帮我看看，这种透明的卡是什么啊",
+                    style: TextStyle(color: ColorPlate.black9),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                  )
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
