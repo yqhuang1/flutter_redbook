@@ -46,6 +46,7 @@ dependencies:
   flutter_screenutil: ^5.8.4
   http: ^1.2.1
   event_bus_plus: ^0.6.2
+  image_picker: ^1.1.2
 
 dev_dependencies:
   flutter_test:

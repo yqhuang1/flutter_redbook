@@ -31,8 +31,9 @@ class VideoController extends GetxController with WidgetsBindingObserver {
     super.didChangeMetrics();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       // 第一次进入页面bottom为0，页面在底部点击输入框可能导致键盘无法弹起
-      if (currentBottom == WidgetsBinding.instance.window.viewInsets.bottom)
+      if (currentBottom == WidgetsBinding.instance.window.viewInsets.bottom) {
         return;
+      }
       if (WidgetsBinding.instance.window.viewInsets.bottom == 0) {
         focusNode.unfocus();
         // 收起键盘，如果文本是空的，清除回复的人的信息

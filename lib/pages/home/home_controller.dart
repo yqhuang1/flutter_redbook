@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../common/utils/public_utils.dart';
 import '../video/video_controller.dart';
@@ -8,6 +9,7 @@ class HomeController extends GetxController {
 
   void onChangePage(int index) {
     if (index == 2) {
+      openGallery();
     } else {
       currentIndex.value = index;
       if (Get.find<VideoController>().videos.isNotEmpty) {
@@ -21,6 +23,16 @@ class HomeController extends GetxController {
           Get.find<VideoController>().currentVideo.controller?.pause();
         }
       }
+    }
+  }
+
+  void openGallery() async {
+    final ImagePicker imagePicker = ImagePicker();
+    final XFile? image =
+        await imagePicker.pickImage(source: ImageSource.gallery);
+    if (image != null) {
+      final String path = image.path;
+      print(path);
     }
   }
 }
