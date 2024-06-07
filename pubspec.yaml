@@ -47,6 +47,8 @@ dependencies:
   http: ^1.2.1
   event_bus_plus: ^0.6.2
   image_picker: ^1.1.2
+  dio: ^5.4.3+1
+  flutter_easy_permission: any
 
 dev_dependencies:
   flutter_test:
