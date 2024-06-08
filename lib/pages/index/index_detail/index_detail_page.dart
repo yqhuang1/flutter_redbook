@@ -8,9 +8,19 @@ import '../../../constants/color_plate.dart';
 import '../../../widget/bottom_dialog.dart';
 import 'index_detail_controller.dart';
 
-class IndexDetailPage extends StatelessWidget {
+class IndexDetailPage extends StatefulWidget {
   IndexDetailPage({Key? key}) : super(key: key);
+
+  @override
+  State<IndexDetailPage> createState() => _IndexDetailPageState();
+}
+
+class _IndexDetailPageState extends State<IndexDetailPage> {
   final IndexDetailController controller = Get.put(IndexDetailController());
+
+  //创建文本控制器,TextEditingController _controller2 = new TextEditingController(text: "初始化的");
+  final TextEditingController textEditingController = TextEditingController();
+  String textEditingResults = "";
 
   @override
   Widget build(BuildContext context) {
@@ -202,7 +212,9 @@ class IndexDetailPage extends StatelessWidget {
                                                 color: ColorPlate.black3),
                                             recognizer: TapGestureRecognizer()
                                               ..onTap = () {
-                                                print("回复");
+                                                print("回复 @${e.nickname}:");
+                                                textEditingController.text =
+                                                    "回复 @${e.nickname}:";
                                               })
                                       ])),
                                 ],
@@ -251,6 +263,7 @@ class IndexDetailPage extends StatelessWidget {
         children: [
           Expanded(
             child: Container(
+              height: 50,
               margin: const EdgeInsets.only(right: 12.0),
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               decoration: const ShapeDecoration(
@@ -266,8 +279,25 @@ class IndexDetailPage extends StatelessWidget {
                       color: ColorPlate.black9,
                     ),
                   ),
-                  const Text("说点什么...",
-                      style: TextStyle(color: ColorPlate.black9))
+                  SizedBox(
+                    width: (Get.width / 3),
+                    child: TextField(
+                      style: const TextStyle(fontSize: 13),
+                      decoration: const InputDecoration(
+                        hintText: "说点什么...",
+                        hintStyle:
+                            TextStyle(fontSize: 13, color: ColorPlate.black9),
+                        border: InputBorder.none,
+                      ),
+                      onSubmitted: (String str) {
+                        setState(() {
+                          print(textEditingController.text);
+                          textEditingController.text = "";
+                        });
+                      },
+                      controller: textEditingController,
+                    ),
+                  ),
                 ],
               ),
             ),
