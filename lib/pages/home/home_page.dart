@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_redbook/pages/main/main_page.dart';
 import 'package:get/get.dart';
 
 import '../drawer/my_drawer.dart';
@@ -74,7 +73,7 @@ class HomePage extends StatelessWidget {
               ),
             ],
             onTap: (index) {
-              homeController.onChangePage(index);
+              homeController.onChangePage(index, context);
             },
           ),
         ),
