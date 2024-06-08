@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_redbook/widget/bottom_dialog.dart';
 import 'package:get/get.dart';
 
 import '../../constants/color_plate.dart';
@@ -138,13 +139,11 @@ class MinePage extends StatelessWidget {
                         const SizedBox(
                           width: 20,
                         ),
-                        InkWell(
+                        GestureDetector(
                           onTap: () {
-                            showModalBottomSheet(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return _buildShareWidget(context);
-                                });
+                            shareBottomDialog(context, (callBack) async {
+                              controller.openIndexDetailPage(callBack);
+                            });
                           },
                           child: Image.asset(
                             "assets/images/share.png",

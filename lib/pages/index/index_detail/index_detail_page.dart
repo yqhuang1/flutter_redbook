@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 import '../../../common/utils/date_utils.dart';
 import '../../../constants/color_plate.dart';
+import '../../../widget/bottom_dialog.dart';
 import 'index_detail_controller.dart';
 
 class IndexDetailPage extends StatelessWidget {
@@ -50,10 +51,17 @@ class IndexDetailPage extends StatelessWidget {
                   style: TextStyle(color: ColorPlate.primary, fontSize: 12),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 12.0, right: 14),
-                child: Image.asset("assets/images/share.png",
-                    width: 20, height: 20),
+              GestureDetector(
+                onTap: () {
+                  shareBottomDialog(context, (callBack) async {
+                    callBack;
+                  });
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 12.0, right: 14),
+                  child: Image.asset("assets/images/share.png",
+                      width: 20, height: 20),
+                ),
               ),
             ],
           ),
