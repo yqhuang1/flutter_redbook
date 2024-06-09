@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import '../../../common/utils/date_utils.dart';
 import '../../../constants/color_plate.dart';
 import '../../../widget/bottom_dialog.dart';
+import '../../../widget/common_dialog.dart';
 import 'index_detail_controller.dart';
 
 class IndexDetailPage extends StatefulWidget {
@@ -50,15 +51,20 @@ class _IndexDetailPageState extends State<IndexDetailPage> {
               ],
             ),
             actions: [
-              Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
-                decoration: const ShapeDecoration(
-                    shape: StadiumBorder(
-                        side: BorderSide(color: ColorPlate.primary))),
-                child: const Text(
-                  "关注",
-                  style: TextStyle(color: ColorPlate.primary, fontSize: 12),
+              GestureDetector(
+                onTap: () {
+                  alertDialog(context);
+                },
+                child: Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+                  decoration: const ShapeDecoration(
+                      shape: StadiumBorder(
+                          side: BorderSide(color: ColorPlate.primary))),
+                  child: const Text(
+                    "关注",
+                    style: TextStyle(color: ColorPlate.primary, fontSize: 12),
+                  ),
                 ),
               ),
               GestureDetector(
