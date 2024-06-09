@@ -1,15 +1,16 @@
+import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../common/utils/camera_utils.dart';
 import '../../common/utils/public_utils.dart';
 import '../video/video_controller.dart';
 
 class HomeController extends GetxController {
   RxInt currentIndex = 0.obs;
 
-  void onChangePage(int index) {
+  void onChangePage(int index,BuildContext context) {
     if (index == 2) {
-      openGallery();
     } else {
       currentIndex.value = index;
       if (Get.find<VideoController>().videos.isNotEmpty) {

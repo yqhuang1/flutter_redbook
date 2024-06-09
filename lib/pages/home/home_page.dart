@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_redbook/base/presenter/IPresenter.dart';
+import 'package:flutter_redbook/base/view/IView.dart';
 import 'package:get/get.dart';
 
+import '../../base/base_page.dart';
+import '../../common/utils/camera_utils.dart';
+import '../../mvp/mvp_callback.dart';
+import '../../mvp/p_data.dart';
 import '../drawer/my_drawer.dart';
 import '../main/main_page.dart';
 import '../message/message_page.dart';
@@ -8,12 +14,42 @@ import '../mine/mine_page.dart';
 import '../video/video_page.dart';
 import 'home_controller.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends BasePage {
   HomePage({Key? key}) : super(key: key);
+
+  @override
+  BasePageState<IPresenter<IView>, BasePage> getState() => _HomePageState();
+}
+
+class _HomePageState extends BasePageState<PData, HomePage>
+    implements CDataView {
   final HomeController homeController = Get.put(HomeController());
 
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
+    fluPerCallBack(context);
+  }
+
+  @override
+  void dispose() {
+    easyPerOff();
+    super.dispose();
+  }
+
+  @override
+  uploadPic(d) {
+    // TODO: implement uploadPic
+    throw UnimplementedError();
+  }
+
+  @override
+  PData? createPresenter() {
+    return PData();
+  }
+
+  @override
+  buildWidget() {
     return Obx(
       () => Scaffold(
         body: IndexedStack(
@@ -73,7 +109,15 @@ class HomePage extends StatelessWidget {
               ),
             ],
             onTap: (index) {
-              homeController.onChangePage(index, context);
+              if (index == 2) {
+                selPhoCam(context, this, titLab: '上传图片资料',
+                    iSelPicCallBack: (picFile) {
+                  print('通过拍照或者选择相册获取多图片：$picFile');
+                  presenter!.uploadPic(picFile);
+                });
+              } else {
+                homeController.onChangePage(index, context);
+              }
             },
           ),
         ),
